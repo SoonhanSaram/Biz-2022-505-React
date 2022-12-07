@@ -1,0 +1,35 @@
+section.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+nav.main {
+  background-color: aqua;
+  color: black;
+}
+nav.main ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+nav.main li {
+  padding: 12px 16px;
+  margin: 6px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+nav.main li:hover {
+  background-color: #777;
+}
+nav.main li:nth-of-type(4) {
+  margin-left: auto;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
