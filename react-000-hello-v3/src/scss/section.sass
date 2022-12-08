@@ -1,0 +1,22 @@
+// Section.scss를 포함해 사용
+@import "../scss/section.scss"
+
+// 변수선언
+$black : "black"
+$blue : "blue"
+
+//함수 선언
+=circle($size)
+    $width : 30px * $size
+    width : $width
+    height : $width
+    border-radius : 50%
+
+//함수 사용
+.circle 
+    +circle(10)
+    &.blue
+        background-color:blue
+section 
+    &.circle
+    &.box

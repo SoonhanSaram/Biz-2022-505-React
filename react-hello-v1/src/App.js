@@ -1,16 +1,12 @@
-import logo from "./logo.svg";
+import Header from "./comps/hearder";
+import Nav from "./comps/Nav";
 import "./App.css";
-
+import Hello from "./components/hello";
 const App = () => {
-  const comp = (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>반갑습니다</p>
-      </header>
-    </div>
-  );
-  return comp;
+  <div className="App">
+    <Header />
+    <Nav />
+  </div>;
 };
 
 export default App;
