@@ -30,3 +30,6 @@ tag에만 적용
 ### SCSS, SASS 적용
 
 - `yarn add node-sass` dependency 설정, npm은 python의존성 관계로 사용불가
+
+### styled-components 사용하기
+- ```yarn add styled-components```

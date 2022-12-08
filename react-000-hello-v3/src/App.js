@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import Button from "./comps/button.js";
 import Box from "./comps/box.js";
 import Section from "./comps/section.js";
+import Article from "./comps/article.js";
 function App() {
   const buttonStyle = {
     backgroundColor: "black",
@@ -10,6 +11,7 @@ function App() {
     color: "white",
     padding: "12px 16px",
   };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -25,6 +27,7 @@ function App() {
         </Button>
         <Box />
       </Section>
+      <Article theme="yellow"></Article>
     </div>
   );
 }
