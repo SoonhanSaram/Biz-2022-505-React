@@ -1,5 +1,6 @@
 import "./css/App.css";
-import Bookmain from "./comps/bookmain";
+import Bookmain from "./comps/bookmain.js";
+import Modal from "./comps/ModalMain";
 function App() {
   return (
     <div className="App">

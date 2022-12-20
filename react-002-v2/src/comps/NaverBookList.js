@@ -6,9 +6,10 @@ const NaverBookList = (props) => {
     const target = e.target;
     if (target.tagName === "TD") {
       const tr = target.closest("TR");
-      const isbn = tr.dataset.isbn;
-      //BookMain.js에 있는 함수에 전달
-      bookInsert(isbn);
+      const b_ISBN = tr.dataset.isbn;
+      const b_title = tr.cells[1].textContent;
+      const b_author = tr.cells[4].textContent;
+      bookInsert({ b_ISBN, b_title, b_author });
     }
   };
   const bookListView = bookListData.map((book) => {

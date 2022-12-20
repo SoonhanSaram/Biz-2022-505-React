@@ -1,9 +1,19 @@
-const BookList = (props) => {
-  const { bookListData } = props;
+import { Bookdata } from "../data/booklistdata";
 
+const BookList = (props) => {
+  const { bookListData, bookComment } = props;
+
+  const clickHandler = (e) => {
+    const target = e.target;
+    if (target.tagName === "TD") {
+      const b_ISBN = target.closest("TR").dataset.ISBN;
+      const b_title = target.closest("TR").cells[1].textContent;
+      bookComment({ b_ISBN, b_title });
+    }
+  };
   const bookListView = bookListData.map((bookData) => {
     return (
-      <tr key={bookData.b_ISBN}>
+      <tr key={bookData.b_ISBN} data-isbn={Bookdata.b_ISBN}>
         <td>{bookData.b_ISBN}</td>
         <td>{bookData.b_title}</td>
         <td>{bookData.b_author}</td>
@@ -21,7 +31,7 @@ const BookList = (props) => {
             <th>저자</th>
           </tr>
         </thead>
-        <tbody>{bookListView}</tbody>
+        <tbody onClick={clickHandler}>{bookListView}</tbody>
       </table>
     </div>
   );

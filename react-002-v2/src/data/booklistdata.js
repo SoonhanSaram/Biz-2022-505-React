@@ -8,7 +8,7 @@ const BookListData = [
 
 const Bookdata = {
   b_ISBN: "",
-  b_title: "임의도서명",
+  b_title: "",
   b_author: "",
 };
 /**

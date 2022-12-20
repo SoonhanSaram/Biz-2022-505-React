@@ -18,6 +18,7 @@ const BookInput = (props) => {
       // bookMain.js의 bookSearch()에
       // 입력문자열 전달
       bookSearch(value);
+      e.target.value = "";
     }
   };
 

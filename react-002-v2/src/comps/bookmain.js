@@ -3,14 +3,15 @@ import "../css/book.css";
 import Modal from "./ModalMain";
 import BookInput from "./bookinput";
 import BookList from "./booklist";
+import BookComment from "./BookComment";
 import { getQueryData } from "../modules/naverbookfetch";
 // default로 export한 모듈과 이름으로 export한 모듈 동시에 가져옴
-import BookListData, { Bookdata } from "../data/booklistdata";
+import { Bookdata } from "../data/booklistdata";
 import NaverBookList from "./NaverBookList";
 
 const Bookmain = () => {
   // 리스트도서보여줄 때 사용할 데이터
-  const [bookListData, setBookList] = useState(BookListData);
+  const [bookListData, setBookList] = useState([]);
   // input box에 입력한 내용을 임시 저장할 변수
   const [bookData, setBookData] = useState(Bookdata);
 
@@ -18,6 +19,7 @@ const Bookmain = () => {
   const [openModal, setOpenModal] = useState({
     input: false,
     naver: false,
+    comment: false,
   });
   /**
    * naverFetch 함수는 BookMain.js Component가 Rendering될 때마다
@@ -38,18 +40,25 @@ const Bookmain = () => {
    *                반복 계산을 제거해 실행속도를 개선하는 기술
    *                  => 동적 계획법의 핵심 기술
    */
-  const naverFetch = useCallback((b_title) => {
-    const fetchBook = async () => {
-      const result = await getQueryData(b_title);
-      setNaverBookListData(result);
-      // console.log(result);
+  const naverFetch = useCallback(
+    (b_title) => {
+      const fetchBook = async () => {
+        const result = await getQueryData(b_title);
+        setNaverBookListData(result);
+        // console.log(result);
+        modalOpenToggle("naver");
+      };
+      fetchBook();
+    },
+    [naverBookListData, openModal]
+  );
+  const bookInsert = useCallback(
+    (bookData) => {
+      setBookList([...bookListData, bookData]);
       modalOpenToggle("naver");
-    };
-    fetchBook();
-  }, []);
-  const bookInsert = useCallback((isbn) => {
-    alert(isbn);
-  }, []);
+    },
+    [bookListData, bookData, openModal]
+  );
   /**
    * bookInput에서 Enter를 눌렀을 때 호출되는 함수
    */
@@ -61,9 +70,13 @@ const Bookmain = () => {
     setOpenModal({ ...openModal, [name]: !openModal[name] });
   };
 
+  const bookComment = (book) => {
+    setBookData({ ...bookData, ...book });
+    modalOpenToggle("comment");
+  };
+
   return (
     <div className="Book">
-      <div>{bookData.b_title}</div>
       <BookInput
         bookData={bookData}
         setBookData={setBookData}
@@ -80,7 +93,15 @@ const Bookmain = () => {
         <NaverBookList
           bookListData={naverBookListData}
           bookInsert={bookInsert}
+          bookComment={bookComment}
         />
+      </Modal>
+      <Modal
+        header="독서 소삼"
+        close={() => modalOpenToggle("comment")}
+        open={openModal.comment}
+      >
+        <BookComment bookData={bookData} />
       </Modal>
     </div>
   );

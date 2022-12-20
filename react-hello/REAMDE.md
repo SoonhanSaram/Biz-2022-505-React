@@ -5,7 +5,7 @@
 - babel : 오래된 browser에서 새로운 JS코드 (ECMAscript es6+)를 실행 할 수 있도록 변환하는 도구
 
 ```
-npm install -D @babel/core
+npm install -D @babel/core -D
 npm install -D @babel/preset-env
 npm install -D @babel.preset-react
 

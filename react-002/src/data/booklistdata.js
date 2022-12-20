@@ -7,9 +7,9 @@ const BookListData = [
 ];
 
 const Bookdata = {
-  b_ISBN,
-  b_title,
-  b_author,
+  b_ISBN: "",
+  b_title: "임의도서명",
+  b_author: "",
 };
 /**
  * JS 모듈 만들기

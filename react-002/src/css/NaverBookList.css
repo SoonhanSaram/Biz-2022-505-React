@@ -10,12 +10,3 @@ table.Naver {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-table.Naver tr:nth-of-type(odd) {
-  background-color: #ddd;
-}
-
-table.Naver tr:hover {
-  background-color: #ccc;
-  cursor: pointer;
-}
