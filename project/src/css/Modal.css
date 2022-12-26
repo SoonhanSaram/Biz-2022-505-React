@@ -1,0 +1,57 @@
+.Modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal.open {
+  display: flex;
+  align-items: center;
+}
+
+.Modal .frame {
+  width: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.Modal .frame .close {
+  margin: 8px 8px 8px auto;
+  cursor: pointer;
+}
+
+.Modal .frame > * {
+  margin: 12px auto 8px 8px;
+}
+
+.frame input {
+  padding: 0.5em;
+  margin-left: 12px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.frame button {
+  margin: auto;
+  padding: 0.5em;
+  width: 95%;
+  border: none;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+  background-color: rgb(78, 120, 197);
+  color: azure;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
+}
+
+.frame button:hover {
+  box-shadow: -1px -1px;
+  background-color: cornflowerblue;
+}

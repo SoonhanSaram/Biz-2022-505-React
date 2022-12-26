@@ -1,7 +1,9 @@
+import { useTodoContext } from "../context/TodoContext";
 import { useCallback } from "react";
 
-const TodoItem = (props) => {
-  const { item, todoDelete, todoComplete, todoEditor } = props;
+const TodoItem = ({ item }) => {
+  const { todoDelete, todoComplete, todoEditor } = useTodoContext();
+
   const deleteHandler = useCallback((e) => {
     const target = e.target;
     const parent = target.closest("DIV.item");

@@ -2,19 +2,40 @@
   margin: 40px auto;
   padding: 20px;
   width: 50%;
+  height: 700px;
   min-height: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
 }
 .uploadFile {
-  margin: 20px auto;
+  margin: 12px auto 0 auto;
 }
 .upload .preview {
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 400px;
   object-fit: contain;
   margin-bottom: 40px;
+  border: 1px solid black;
+  padding: 2px;
+}
+.random-preview {
+  width: 500px;
+  height: 400px;
+  list-style: none;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.random-preview li {
+  width: 100px;
+  height: 100px;
+}
+.preview-wrap {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  z-index: -1;
+  width: 500px;
+  height: 400px;
 }
