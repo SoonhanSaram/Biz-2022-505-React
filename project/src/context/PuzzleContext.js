@@ -84,6 +84,7 @@ const PuzzleContextProvider = ({ children }) => {
     console.log(file);
   };
   // 게임 시간
+  const [playtime , setPlayTime] = use
   const playtime = setInterval(() => {
     setTimer((timer) => timer + 1), 1000;
   });
