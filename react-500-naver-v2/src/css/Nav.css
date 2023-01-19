@@ -1,0 +1,24 @@
+/*
+각 컴포넌트에서 사용하는 css 는 컴포넌트 이름과 같이 명명
+*/
+nav.main_nav {
+  display: flex;
+}
+/*
+a tag display는 inline 속성을 갖는다
+inline 속성은 padding, width, height 속성 설정이 안됨
+a tag 를 감싸고 있는 nav tag 에 display 를 flex 로 설정함으로
+a tag flex-item 이 되어 inline-block 속성을 띄게 됨
+*/
+nav.main_nav a {
+  padding: 12px 16px 6px 16px;
+  margin: 6px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.7s;
+}
+nav.main_nav a:hover {
+  border-bottom: 3px solid rgb(175, 250, 25);
+}
+nav.main_nav a:nth-of-type(4) {
+  margin-left: auto;
+}
