@@ -3,8 +3,11 @@ import { User } from "../models/user";
 const getLoginUser = async () => {
   const response = await fetch("/api/user/session");
   const result = await response.json();
-  if (result?.CODE_NUM >= 200) return null;
-  return result;
+  if (result.CODE === 200) {
+    return result.MSG;
+  } else {
+    return null;
+  }
 };
 const setLogin = async (loginUser) => {
   const user = new User(loginUser.username, loginUser.password);
@@ -17,21 +20,15 @@ const setLogin = async (loginUser) => {
   const response = await fetch("/api/user/login", fetchOption);
   const result = await response.json();
   console.log(result);
-
-  // if (result?.CODE_NUM === 401 && result.SUB_CODE === "USERNAME") {
-  //   alert(`${loginUser.username}은 가입된 사용자가 아님`);
-  // } else if (result?.CODE_NUM === 401 && result.SUB_CODE === "PASSWORD") {
-  //   alert(`비밀번호를 확인해주세요`);
-  // } else {
-  //   return result;
-  // }
-
-  return result;
-};
-
-export const logout = async () => {
-  if (window?.confirm("로그아웃 하겠습니까?"))
-    return await fetch("/api/user/logout");
+  if (result.CODE < 300) {
+    // setSessionUser(result.MSG);
+    return result.MSG;
+  } else if (result.CODE === 401 && result.SUB_CODE === "USERNAME") {
+    alert(`${loginUser.username}은 가입된 사용자가 아님`);
+  } else if (result.CODE === 401 && result.SUB_CODE === "PASSWORD") {
+    alert(`비밀번호를 확인해주세요`);
+  }
+  return null;
 };
 
 // export default {getLoginUser}

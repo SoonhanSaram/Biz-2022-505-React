@@ -32,7 +32,10 @@ const Popup = (props) => {
                   onChange={onChangeHandler}
                 />
               </li>
-              <span className="book button" onClick={addMyBook}>
+              <span
+                className="book button w3-button w3-bar"
+                onClick={addMyBook}
+              >
                 완료
               </span>
             </ul>
