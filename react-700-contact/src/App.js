@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import ContactMain from "./comp/ContactMain";
+import "./css/main.css";
 
-function App() {
+export const loader = async () => {
+  const res = await fetch("api/list");
+  const result = await res.json();
+  return { contacts: result, hello: "반갑습니다" };
+};
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="App header">
+        <h1>Hello Contact</h1>
+        <p>Hello My Contact React and Spring 2023</p>
       </header>
+      <ContactMain />
     </div>
   );
-}
-
+};
 export default App;
