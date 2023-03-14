@@ -56,15 +56,6 @@ div.image-box {
   transition: all 0.7s;
 }
 
-div.image-box:hover {
-  animation-play-state: paused;
-}
-div.animation-left {
-  animation: image_left 3s linear infinite;
-}
-div.animation-right {
-  animation: image_right 3s linear infinite;
-}
 div.button-box {
   width: 500px;
   display: flex;
@@ -78,23 +69,4 @@ div.button-box {
 div.button:hover {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
-}
-@keyframes image_left {
-  0% {
-    transform: translateX(0px);
-  }
-
-  100% {
-    transform: translateX(-2500px);
-  }
-}
-
-@keyframes image_right {
-  0% {
-    transform: translateX(-2500px);
-  }
-
-  100% {
-    transform: translateX(0px);
-  }
 }
