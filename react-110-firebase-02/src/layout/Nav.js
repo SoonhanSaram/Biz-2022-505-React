@@ -1,15 +1,16 @@
 import { NavLink } from "react-router-dom";
-import { useFirebaseContext } from "../provider/FirebaseProvider";
+import { useAuthorContext } from "../firebase/AuthorProvider";
+
 const Nav = () => {
-  const { loginUser } = useFirebaseContext();
+  const { loginUser } = useAuthorContext();
   return (
     <nav className="main">
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/">TodoList</NavLink>
+      <NavLink to="/todo">TodoList</NavLink>
       {loginUser ? (
         <>
           <NavLink to="/user/mypage">마이페이지</NavLink>
-          <NavLink to="#">로그아웃</NavLink>
+          <NavLink to="/user/logout">로그아웃</NavLink>
         </>
       ) : (
         <>

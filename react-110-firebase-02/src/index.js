@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { AuthorContextProvider } from "./firebase/AuthorProvider";
+import { DBContextProvider } from "./firebase/DbProvider";
 import "./index.css";
 
 import MainRouterProvider from "./layout/MainRouter";
-import { FirebaseContextProvider } from "./provider/FirebaseProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <FirebaseContextProvider>
-      <MainRouterProvider />
-    </FirebaseContextProvider>
+    <AuthorContextProvider>
+      <DBContextProvider>
+        <MainRouterProvider />
+      </DBContextProvider>
+    </AuthorContextProvider>
   </React.StrictMode>
 );

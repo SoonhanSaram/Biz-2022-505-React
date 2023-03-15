@@ -14,17 +14,17 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { firebaseApp } from "../firebase/firebaseConfig";
+import { firebaseApp } from "./firebaseConfig";
 
 const auth = getAuth(firebaseApp);
 
-const FirebaseContext = createContext();
+const AuthorContext = createContext();
 
-export const useFirebaseContext = () => {
-  return useContext(FirebaseContext);
+export const useAuthorContext = () => {
+  return useContext(AuthorContext);
 };
 
-export const FirebaseContextProvider = ({ children }) => {
+export const AuthorContextProvider = ({ children }) => {
   const [loginUser, setLoginUser] = useState();
   const [loginMessage, setLoginMessage] = useState({ id: null, message: null });
   useEffect(() => {
@@ -91,8 +91,6 @@ export const FirebaseContextProvider = ({ children }) => {
     loginMessage,
   };
   return (
-    <FirebaseContext.Provider value={props}>
-      {children}
-    </FirebaseContext.Provider>
+    <AuthorContext.Provider value={props}>{children}</AuthorContext.Provider>
   );
 };

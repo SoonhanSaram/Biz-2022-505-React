@@ -1,15 +1,19 @@
 import { Button } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import { useFirebaseContext } from "../provider/FirebaseProvider";
+import { useAuthorContext } from "../firebase/AuthorProvider";
+
 const GoogleLogin = () => {
-  const { loginUser, googleSignin, googleSignOut } = useFirebaseContext();
+  const { loginUser, googleSignin, googleSignOut } = useAuthorContext();
   return (
     <Container maxWidth="xl">
       <Box sx={{ mt: "30px", pt: "20px" }}>
         {loginUser ? (
-          <Button variant="contained" onClick={googleSignOut}>
-            {loginUser?.displayName} 로그아웃
-          </Button>
+          <>
+            <p>{loginUser?.email}</p>
+            <Button variant="contained" onClick={googleSignOut}>
+              {loginUser?.email} 로그아웃
+            </Button>
+          </>
         ) : (
           <Button variant="contained" onClick={googleSignin}>
             구글 로그인
